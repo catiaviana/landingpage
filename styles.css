@@ -137,14 +137,27 @@ body{
     width: 100%;
 }
 
-/*para se adaptar a todas as larguras de ecra, mantendo o mesmo padding*/
+/*para se adaptar a todas as larguras de ecra, mantendo o mesmo padding, para usar no tlm*/
 @media (max-width: 785px) {
    .navigation{
-     padding: 18px 20px; /*vertical horizontal*/
+       padding: 18px 20px; /*vertical horizontal*/
     }
    .menu{
-     display: block;
+       display: block;
     }
+    /*transforma os 3 traços em uma cruz*/
+    /*filho 1 translate(y) 8px e faça rotaçao de 45degraus*/
+   .menu.active .bar:nth-child(1){
+     transform: translateY(8px) rotate(45deg);        
+   }
+   /*filho 2 desaparece*/
+   .menu.active .bar:nth-child(2){
+    opacity: 0;
+   }
+    /*filho 3*/
+   .menu.active .bar:nth-child(3){
+     transform: translateY(-8px) rotate(-45deg);
+   }
    .nav-menu{
      position:fixed;
      right: -100%;
@@ -156,8 +169,37 @@ body{
      gap: -10px;
      transition: 0.3s;
     }
+
+    /* ao clicar nos 3 traços, estes tornam-se uma cruz de 2 traços e aparecem "HOME" "ABOUT" "MENU" "CONTACT" na lateral*/
+    .nav-menu.active{
+        right: 0;
+    }
+
     .nav-item{
      margin: 16px 8;
+    }
+    /*MAIN*/
+    /*Centraliza o main*/
+    .home{
+        padding: 100px 2%;
+        flex-direction: column;
+        text-align:center;
+        overflow: hidden;
+        gap: 5rem;
+    }
+    .home .text-h4{
+        font-size: 15px;
+    }
+
+    .home .text-h1{
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+    .home p{
+        font-size: 15px;
+    }
+    .home-img{
+        width: 125%;
     }
 
 }
